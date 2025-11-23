@@ -1249,7 +1249,7 @@ PHP_MINIT_FUNCTION(mosquitto)
 	mosquitto_ce_client->create_object = mosquitto_client_object_new;
 
 	INIT_NS_CLASS_ENTRY(exception_ce, "Mosquitto", "Exception", NULL);
-	mosquitto_ce_exception = zend_register_internal_class_ex(&exception_ce, zend_exception_get_default());
+	mosquitto_ce_exception = zend_register_internal_class_ex(&exception_ce, zend_ce_exception);
 
 	#define REGISTER_MOSQUITTO_LONG_CONST(const_name, value) \
 	zend_declare_class_constant_long(mosquitto_ce_client, const_name, sizeof(const_name)-1, (long)value); \
